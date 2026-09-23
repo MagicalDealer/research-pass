@@ -1,0 +1,119 @@
+name: Improvement Proposal
+description: Propose a specific change to the Research Pass and provide evidence for why it may improve the canonical system.
+title: "[Improvement]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing an improvement.
+
+        The goal is not to make the Research Pass longer, shorter, or more elegant.
+
+        The goal is to make the research process more reliable.
+
+  - type: input
+    id: version
+    attributes:
+      label: Canonical version tested
+      placeholder: "1.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe the specific behavior, limitation, or failure that motivated this proposal.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What evidence shows this is a real problem?
+      description: Include repeated tests, expert critique, cross-model behavior, benchmark failures, or baseline comparisons.
+    validations:
+      required: true
+
+  - type: textarea
+    id: change
+    attributes:
+      label: Exact proposed change
+      description: Quote the existing text when possible and show the replacement or addition.
+    validations:
+      required: true
+
+  - type: textarea
+    id: mechanism
+    attributes:
+      label: Why should this help?
+      description: Explain the mechanism by which the change should improve research behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: What did you test?
+      description: Include research questions, domains, models, tool availability, and number of runs.
+    validations:
+      required: true
+
+  - type: textarea
+    id: improvements
+    attributes:
+      label: What improved?
+      description: Be specific about the behavior that got better.
+    validations:
+      required: true
+
+  - type: textarea
+    id: regressions
+    attributes:
+      label: What got worse?
+      description: Report regressions honestly. Write "None observed" only if you actually checked.
+    validations:
+      required: true
+
+  - type: textarea
+    id: unrelated_test
+    attributes:
+      label: Unrelated regression test
+      description: Describe at least one unrelated question you tested after making the change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: uncertainty
+    attributes:
+      label: What remains uncertain?
+      description: What has not yet been tested or established?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Proposed scope
+      options:
+        - Canonical Research Pass
+        - Experimental only
+        - Domain-specific fork
+        - Model-specific fork
+        - Unsure
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation
+      options:
+        - label: I tested the canonical version before testing my modification.
+          required: true
+        - label: I compared the modified version against the baseline on the motivating case.
+          required: true
+        - label: I tested at least one unrelated question for regressions.
+          required: true
+        - label: I have reported known negative or mixed results.
+          required: true
