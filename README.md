@@ -97,6 +97,8 @@ how well it transfers across topics and AI models
 
 whether community modifications genuinely improve it
 
+whether the current monolithic prompt should eventually become a modular skill, agent system, or other architecture
+
 The Research Pass should not be protected from criticism.
 
 We want people to break it.
@@ -139,9 +141,15 @@ Did it change the question in a productive way?
 
 Did it materially improve the conclusion?
 
+Did it add enough value to justify its token, time, and tool cost?
+
 Please test the canonical version first before modifying it.
 
 That gives the community a real baseline.
+
+For the full testing method, see TESTING_PROTOCOL.md.
+
+For a quick tester walkthrough, see TESTER_GUIDE.md.
 
 Community Research Lab
 
@@ -169,9 +177,47 @@ evidence that a current rule is unnecessary
 
 evidence that a proposed change causes regressions
 
+architectural alternatives such as modular, skill-based, or multi-agent implementations
+
 Ideas are welcome.
 
 Evidence is better.
+
+Experimental Hypotheses
+
+Community feedback is already generating testable ideas about how the Research Pass may need to evolve.
+
+These are tracked in:
+
+EXPERIMENTAL_HYPOTHESES.md
+
+Examples currently being tested include:
+
+whether Research Pass over-researches simple questions
+
+whether its strongest value appears on messy or poorly framed questions
+
+whether research scaffolding can amplify hallucination when real research tools are unavailable
+
+whether modular or skill-based implementations can preserve quality at lower token cost
+
+whether performance changes materially across model families
+
+whether a shared glossary improves consistency
+
+whether redundant instructions can be safely removed
+
+whether multi-agent or cross-vendor systems outperform single-context execution
+
+whether modern frontier models make some explicit scaffolding unnecessary
+
+whether Research Pass doctrine should be separated from its execution architecture
+
+Nothing in the hypothesis ledger is canonical merely because it is listed.
+
+The intended lifecycle is:
+
+Observation → Hypothesis → Test → Counter-test → Supported / Weakened / Rejected / Inconclusive → Possible canonical change
 
 Canonical vs. Forks
 
@@ -189,11 +235,47 @@ Lightweight Research Pass
 
 Model-specific versions
 
+Modular skill implementations
+
+Multi-agent implementations
+
+Cross-vendor implementations
+
 But there will remain one clearly identified:
 
 Universal Research Pass — Canonical
 
 A change should enter the canonical version because testing shows that it improves the system — not merely because the wording sounds better.
+
+Benchmark
+
+The project includes an early experimental benchmark in benchmark/.
+
+The current alpha benchmark is designed to stress-test behaviors such as:
+
+research-depth selection
+
+false-premise detection
+
+source lineage
+
+competing scientific explanations
+
+historical multicausality
+
+vocabulary discovery
+
+user-context gathering
+
+confirmation-bias resistance
+
+technical diagnosis
+
+current-state research
+
+The benchmark is not a scientific leaderboard.
+
+It is an evolving regression set that should increasingly be built from real community failures.
 
 Core Principle
 
@@ -203,42 +285,52 @@ It finishes when outside knowledge has collided with the question hard enough to
 
 Contributing
 
-Contribution guidelines, structured testing instructions, failure-report templates, and the public benchmark are being added during the alpha.
+The project now includes:
 
-For now, use Discussions to share:
+CONTRIBUTING.md — contribution rules
 
-test results
+TESTING_PROTOCOL.md — structured testing method
 
-failure cases
+TESTER_GUIDE.md — quick-start testing guide
 
-questions
+EXPERIMENTAL_HYPOTHESES.md — testable community hypotheses
 
-proposed changes
+CHANGELOG.md — canonical version history
 
-forks
+benchmark/ — experimental regression tests
 
-observations
+structured GitHub Failure Report and Improvement Proposal issue forms
+
+GitHub Discussions for test results, failure cases, ideas, questions, and forks
 
 The most valuable feedback is specific enough that someone else could reproduce the problem.
+
+A typical contribution should move through:
+
+Observation → Discussion → Reproducible Problem → Hypothesis or Issue → Test → Regression Check → Review → Merge / Reject / Keep Experimental
 
 Project Roadmap
 
 The early project will focus on:
 
-small-scale alpha testing
+collecting real-world A/B tests
 
-structured community test reports
+expanding cross-model testing
 
-collecting real failure cases
+reproducing community-reported failures
 
-creating a public benchmark from those failures
+testing token and latency costs
 
-cross-model testing
+comparing canonical v1.0 against compressed, modular, and agentic alternatives
 
-regression testing proposed changes
+growing the benchmark from real failure cases
+
+testing which instructions are genuinely necessary
+
+separating model-specific behavior from Research Pass behavior
 
 evidence-based version releases
 
 The goal is not to make the longest or most complicated research prompt.
 
-The goal is to make the most reliable research process we can collectively build.
+The goal is to make the most reliable, efficient, and transferable research process we can collectively build.
