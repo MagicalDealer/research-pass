@@ -1,0 +1,142 @@
+name: Failure Report
+description: Report a reproducible case where the Research Pass behaved poorly, misleadingly, inefficiently, or unexpectedly.
+title: "[Failure]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping break the Research Pass.
+
+        A reproducible failure is one of the most valuable contributions to this project.
+
+        Please test the canonical Research Pass before modifying it whenever possible.
+
+  - type: input
+    id: version
+    attributes:
+      label: Research Pass version
+      description: Which canonical version did you test?
+      placeholder: "1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: provider_model
+    attributes:
+      label: AI provider and model
+      description: Include the provider and exact model if known.
+      placeholder: "OpenAI — GPT-5.6 Sol"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: web
+    attributes:
+      label: Was web/search available?
+      options:
+        - "Yes"
+        - "No"
+        - "Unknown"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: expertise
+    attributes:
+      label: Your familiarity with the topic
+      options:
+        - Beginner
+        - Intermediate
+        - Expert
+        - Prefer not to classify
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Exact research question
+      description: Paste the exact question or prompt you used after loading the Research Pass.
+      placeholder: "Research Pass this: ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      description: What would a good Research Pass have done here?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened?
+      description: Describe the failure, weak behavior, confusion, or unexpected result.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why_it_matters
+    attributes:
+      label: Why does this matter?
+      description: Explain why this behavior reduces research quality, reliability, usability, or efficiency.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: reproducible
+    attributes:
+      label: Could you reproduce it?
+      options:
+        - "Yes — repeatedly"
+        - "Yes — at least once more"
+        - "Not yet"
+        - "No"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: baseline
+    attributes:
+      label: Did you compare against a normal AI answer?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+
+  - type: textarea
+    id: baseline_result
+    attributes:
+      label: Baseline comparison
+      description: If you ran a normal AI comparison, explain what was better or worse.
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting evidence or output
+      description: Paste relevant excerpts, links, screenshots, or other material needed to understand or reproduce the problem.
+
+  - type: textarea
+    id: suspected_cause
+    attributes:
+      label: Suspected cause
+      description: Optional. What part of the protocol may have contributed?
+
+  - type: textarea
+    id: proposed_fix
+    attributes:
+      label: Proposed fix
+      description: Optional. Suggest a fix only if you have one; reporting the failure alone is valuable.
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation
+      options:
+        - label: I tested the canonical Research Pass before modifying it, or I have clearly stated that I did not.
+          required: true
+        - label: I have not intentionally removed important context needed to understand the failure.
+          required: true
